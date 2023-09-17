@@ -99,6 +99,9 @@ public class MainActivity extends AppCompatActivity {
         cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT,image_uri);
         startActivityForResult(cameraIntent,IMAGE_CAPTURE_CODE);
 
+        mCaptureBtn.setText("Decrypting......");
+        mCaptureBtn.setWidth(170);
+
     }
 
     private void runTextRecognition(Bitmap mSelectedImage) {
@@ -162,7 +165,7 @@ public class MainActivity extends AppCompatActivity {
         Bitmap bitmap= null;
         try {
             bitmap = MediaStore.Images.Media.getBitmap(context.getContentResolver(), image_uri);
-            System.out.println("Image converted");
+
             return bitmap;
         } catch (IOException e) {
             e.printStackTrace();
